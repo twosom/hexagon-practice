@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/topology-inventory/domain/domain.iml" filepath="$PROJECT_DIR$/topology-inventory/domain/domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/hexagon-prac.iml" filepath="$PROJECT_DIR$/.idea/hexagon-prac.iml" />
+      <module fileurl="file://$PROJECT_DIR$/topology-inventory/topology-inventory.iml" filepath="$PROJECT_DIR$/topology-inventory/topology-inventory.iml" />
+    </modules>
+  </component>
+</project>
