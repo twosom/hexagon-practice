@@ -10,6 +10,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Getter
@@ -21,17 +22,17 @@ public class CoreRouter extends Router {
     @Builder
     public CoreRouter(Id id, Vendor vendor, Model model, IP ip, Location location, RouterType routerType, Map<Id, Router> routers) {
         super(id, vendor, model, ip, location, routerType);
-        this.routers = routers;
+        this.routers = routers == null ? new HashMap<>() : routers;
     }
 
-    public Router addRouter(Router anyRouter) {
+    public CoreRouter addRouter(Router anyRouter) {
         var sameCountryRouterSpec = new SameCountrySpec(this);
         var sameIpSpec = new SameIpSpec(this);
 
         sameCountryRouterSpec.check(anyRouter);
         sameIpSpec.check(anyRouter);
-
-        return this.routers.put(anyRouter.id, anyRouter);
+        this.routers.put(anyRouter.id, anyRouter);
+        return this;
     }
 
     public Router removeRouter(Router anyRouter) {

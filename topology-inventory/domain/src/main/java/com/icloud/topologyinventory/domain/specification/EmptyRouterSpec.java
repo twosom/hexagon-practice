@@ -13,7 +13,7 @@ public class EmptyRouterSpec extends AbstractSpecification<CoreRouter> {
     }
 
     @Override
-    public void check(CoreRouter coreRouter)  {
+    public void check(CoreRouter coreRouter) {
         if (!isSatisfiedBy(coreRouter)) {
             throw new GenericSpecificationException("It isn't allowed to remove a core router with other routers attached to it");
         }
