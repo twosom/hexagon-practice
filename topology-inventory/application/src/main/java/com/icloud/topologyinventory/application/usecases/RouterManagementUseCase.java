@@ -6,13 +6,16 @@ import com.icloud.topologyinventory.domain.vo.*;
 
 public interface RouterManagementUseCase {
 
-    Router createRouter(Vendor vendor, Model model, IP ip, Location location, RouterType routerType);
+    Router createRouter(Id id, Vendor vendor, Model model, IP ip, Location location, RouterType routerType);
+
+    Router removeRouter(Id id);
+
+    Router retrieveRouter(Id id);
 
     CoreRouter addRouterToCoreRouter(Router router, CoreRouter coreRouter);
 
     Router removeRouterFromCoreRouter(Router router, CoreRouter coreRouter);
 
-    Router retrieveRouter(Id id);
 
     Router persistRouter(Router router);
 }

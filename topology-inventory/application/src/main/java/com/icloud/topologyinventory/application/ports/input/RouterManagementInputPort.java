@@ -9,11 +9,21 @@ import com.icloud.topologyinventory.domain.vo.*;
 
 public class RouterManagementInputPort implements RouterManagementUseCase {
 
-    RouterManagementOutputPort routerManagementOutputPort;
+    private final RouterManagementOutputPort routerManagementOutputPort;
+
+    public RouterManagementInputPort(RouterManagementOutputPort routerManagementOutputPort) {
+        this.routerManagementOutputPort = routerManagementOutputPort;
+    }
+
 
     @Override
-    public Router createRouter(Vendor vendor, Model model, IP ip, Location location, RouterType routerType) {
-        return RouterFactory.getRouter(vendor, model, ip, location, routerType);
+    public Router createRouter(Id id, Vendor vendor, Model model, IP ip, Location location, RouterType routerType) {
+        return RouterFactory.getRouter(id, vendor, model, ip, location, routerType);
+    }
+
+    @Override
+    public Router removeRouter(Id id) {
+        return this.routerManagementOutputPort.removeRouter(id);
     }
 
     @Override

@@ -17,12 +17,14 @@ public class Switch extends Equipment {
 
     private final SwitchType switchType;
     private final List<Network> switchNetworks;
+    private final Id routerId;
 
     @Builder
-    public Switch(Id id, Vendor vendor, Model model, IP ip, Location location, SwitchType switchType, List<Network> switchNetworks) {
-        super(id, vendor, model, ip, location);
+    public Switch(Id switchId, Id routerId, Vendor vendor, Model model, IP ip, Location location, SwitchType switchType, List<Network> switchNetworks) {
+        super(switchId, vendor, model, ip, location);
         this.switchType = switchType;
         this.switchNetworks = switchNetworks;
+        this.routerId = routerId;
     }
 
     public static Predicate<Switch> getSwitchTypePredicate(SwitchType switchType) {

@@ -8,6 +8,7 @@ import com.icloud.topologyinventory.domain.specification.SameIpSpec;
 import com.icloud.topologyinventory.domain.vo.*;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.util.HashMap;
@@ -17,7 +18,8 @@ import java.util.Map;
 @ToString
 public class CoreRouter extends Router {
 
-    private final Map<Id, Router> routers;
+    @Setter
+    private Map<Id, Router> routers;
 
     @Builder
     public CoreRouter(Id id, Vendor vendor, Model model, IP ip, Location location, RouterType routerType, Map<Id, Router> routers) {

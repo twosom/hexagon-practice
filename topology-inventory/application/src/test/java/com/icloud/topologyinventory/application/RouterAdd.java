@@ -4,6 +4,7 @@ package com.icloud.topologyinventory.application;
 import com.icloud.topologyinventory.domain.entity.CoreRouter;
 import com.icloud.topologyinventory.domain.entity.EdgeRouter;
 import com.icloud.topologyinventory.domain.vo.IP;
+import com.icloud.topologyinventory.domain.vo.Id;
 import com.icloud.topologyinventory.domain.vo.Model;
 import com.icloud.topologyinventory.domain.vo.Vendor;
 import io.cucumber.java.en.And;
@@ -26,14 +27,14 @@ public class RouterAdd extends ApplicationTestData {
     @Given("에지 라우터가 있다")
     public void assert_edge_router_exists() {
         edgeRouter = (EdgeRouter) this.routerManagementUseCase
-                .createRouter(Vendor.HP, Model.XYZ0004, IP.fromAddress("20.0.0.1"), locationA, EDGE);
+                .createRouter(Id.withoutId(), Vendor.HP, Model.XYZ0004, IP.fromAddress("20.0.0.1"), locationA, EDGE);
         assertNotNull(edgeRouter);
     }
 
     @And("코어 라우터가 있다")
     public void assert_core_router_exists() {
         coreRouter = (CoreRouter) this.routerManagementUseCase
-                .createRouter(Vendor.CISCO, Model.XYZ0001, IP.fromAddress("30.0.0.1"), locationA, CORE);
+                .createRouter(null, Vendor.CISCO, Model.XYZ0001, IP.fromAddress("30.0.0.1"), locationA, CORE);
         assertNotNull(coreRouter);
     }
 
@@ -50,6 +51,7 @@ public class RouterAdd extends ApplicationTestData {
     public void assert_this_core_router_exists() {
         coreRouter = (CoreRouter) this.routerManagementUseCase
                 .createRouter(
+                        null,
                         Vendor.CISCO,
                         Model.XYZ0001,
                         IP.fromAddress("30.0.0.1"),
@@ -62,6 +64,7 @@ public class RouterAdd extends ApplicationTestData {
     @And("또 다른 코어 라우터가 있다")
     public void assert_another_core_router_exists() {
         anotherCoreRouter = (CoreRouter) this.routerManagementUseCase.createRouter(
+                Id.withoutId(),
                 Vendor.CISCO,
                 Model.XYZ0001,
                 IP.fromAddress("40.0.0.1"),

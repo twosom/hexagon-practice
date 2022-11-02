@@ -5,5 +5,7 @@
     <file url="file://$PROJECT_DIR$/topology-inventory/application/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/topology-inventory/domain/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/topology-inventory/domain/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/topology-inventory/framework/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/topology-inventory/framework/src/main/resources" charset="UTF-8" />
   </component>
 </project>

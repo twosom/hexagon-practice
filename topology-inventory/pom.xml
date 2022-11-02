@@ -10,5 +10,6 @@
     <modules>
         <module>domain</module>
         <module>application</module>
+        <module>framework</module>
     </modules>
 </project>

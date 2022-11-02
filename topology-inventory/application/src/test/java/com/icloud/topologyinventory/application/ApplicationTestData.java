@@ -53,9 +53,9 @@ public class ApplicationTestData {
     protected Location locationB;
 
     public void loadData() {
-        this.routerManagementUseCase = new RouterManagementInputPort();
-        this.switchManagementUseCase = new SwitchManagementInputPort();
-        this.networkManagementUseCase = new NetworkManagementInputPort();
+        this.routerManagementUseCase = new RouterManagementInputPort(routerManagementOutputPort);
+        this.switchManagementUseCase = new SwitchManagementInputPort(switchManagementOutputPort);
+        this.networkManagementUseCase = new NetworkManagementInputPort(routerManagementOutputPort);
         this.locationA = Location.builder().
                 address("Av Republica Argentina 3109").
                 city("Curitiba").
