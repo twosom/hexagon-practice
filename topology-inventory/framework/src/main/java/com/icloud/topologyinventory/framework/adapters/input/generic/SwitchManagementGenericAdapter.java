@@ -1,32 +1,21 @@
 package com.icloud.topologyinventory.framework.adapters.input.generic;
 
-import com.icloud.topologyinventory.application.ports.input.RouterManagementInputPort;
-import com.icloud.topologyinventory.application.ports.input.SwitchManagementInputPort;
 import com.icloud.topologyinventory.application.usecases.RouterManagementUseCase;
 import com.icloud.topologyinventory.application.usecases.SwitchManagementUseCase;
 import com.icloud.topologyinventory.domain.entity.EdgeRouter;
 import com.icloud.topologyinventory.domain.entity.Switch;
 import com.icloud.topologyinventory.domain.vo.*;
-import com.icloud.topologyinventory.framework.adapters.output.h2.RouterManagementH2Adapter;
-import com.icloud.topologyinventory.framework.adapters.output.h2.SwitchManagementH2Adapter;
 
 public class SwitchManagementGenericAdapter {
 
-    private SwitchManagementUseCase switchManagementUseCase;
-    private RouterManagementUseCase routerManagementUseCase;
+    private final SwitchManagementUseCase switchManagementUseCase;
+    private final RouterManagementUseCase routerManagementUseCase;
 
-    public SwitchManagementGenericAdapter() {
-        setPorts();
+    public SwitchManagementGenericAdapter(RouterManagementUseCase routerManagementUseCase, SwitchManagementUseCase switchManagementUseCase) {
+        this.switchManagementUseCase = switchManagementUseCase;
+        this.routerManagementUseCase = routerManagementUseCase;
     }
 
-    private void setPorts() {
-        this.switchManagementUseCase = new SwitchManagementInputPort(
-                SwitchManagementH2Adapter.getInstance()
-        );
-        this.routerManagementUseCase = new RouterManagementInputPort(
-                RouterManagementH2Adapter.getInstance()
-        );
-    }
 
     /**
      * GET /switch/retrieve/{id}

@@ -8,14 +8,17 @@ import com.icloud.topologyinventory.domain.service.NetworkService;
 import com.icloud.topologyinventory.domain.vo.IP;
 import com.icloud.topologyinventory.domain.vo.Id;
 import com.icloud.topologyinventory.domain.vo.Network;
+import lombok.NoArgsConstructor;
 
 import java.util.function.Predicate;
 
+@NoArgsConstructor
 public class NetworkManagementInputPort implements NetworkManagementUseCase {
 
-    private final RouterManagementOutputPort routerManagementOutputPort;
+    RouterManagementOutputPort routerManagementOutputPort;
 
-    public NetworkManagementInputPort(RouterManagementOutputPort routerManagementOutputPort) {
+    @Override
+    public void setOutputPort(RouterManagementOutputPort routerManagementOutputPort) {
         this.routerManagementOutputPort = routerManagementOutputPort;
     }
 

@@ -1,24 +1,16 @@
 package com.icloud.topologyinventory.framework.adapters.input.generic;
 
-import com.icloud.topologyinventory.application.ports.input.RouterManagementInputPort;
 import com.icloud.topologyinventory.application.usecases.RouterManagementUseCase;
 import com.icloud.topologyinventory.domain.entity.CoreRouter;
 import com.icloud.topologyinventory.domain.entity.Router;
 import com.icloud.topologyinventory.domain.vo.*;
-import com.icloud.topologyinventory.framework.adapters.output.h2.RouterManagementH2Adapter;
 
 public class RouterManagementGenericAdapter {
 
-    private RouterManagementUseCase routerManagementUseCase;
+    private final RouterManagementUseCase routerManagementUseCase;
 
-    public RouterManagementGenericAdapter() {
-        setPorts();
-    }
-
-    private void setPorts() {
-        this.routerManagementUseCase = new RouterManagementInputPort(
-                RouterManagementH2Adapter.getInstance()
-        );
+    public RouterManagementGenericAdapter(RouterManagementUseCase routerManagementUseCase) {
+        this.routerManagementUseCase = routerManagementUseCase;
     }
 
     /**

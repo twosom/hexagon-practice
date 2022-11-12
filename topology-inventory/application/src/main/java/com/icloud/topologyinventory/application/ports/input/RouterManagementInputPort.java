@@ -6,15 +6,17 @@ import com.icloud.topologyinventory.domain.entity.CoreRouter;
 import com.icloud.topologyinventory.domain.entity.Router;
 import com.icloud.topologyinventory.domain.entity.factory.RouterFactory;
 import com.icloud.topologyinventory.domain.vo.*;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 public class RouterManagementInputPort implements RouterManagementUseCase {
 
-    private final RouterManagementOutputPort routerManagementOutputPort;
+    RouterManagementOutputPort routerManagementOutputPort;
 
-    public RouterManagementInputPort(RouterManagementOutputPort routerManagementOutputPort) {
+    @Override
+    public void setOutputPort(RouterManagementOutputPort routerManagementOutputPort) {
         this.routerManagementOutputPort = routerManagementOutputPort;
     }
-
 
     @Override
     public Router createRouter(Id id, Vendor vendor, Model model, IP ip, Location location, RouterType routerType) {

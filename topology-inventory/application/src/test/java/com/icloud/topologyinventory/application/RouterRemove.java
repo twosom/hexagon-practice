@@ -2,7 +2,6 @@ package com.icloud.topologyinventory.application;
 
 import com.icloud.topologyinventory.domain.entity.EdgeRouter;
 import com.icloud.topologyinventory.domain.entity.Router;
-import com.icloud.topologyinventory.domain.vo.Id;
 import com.icloud.topologyinventory.domain.vo.RouterType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

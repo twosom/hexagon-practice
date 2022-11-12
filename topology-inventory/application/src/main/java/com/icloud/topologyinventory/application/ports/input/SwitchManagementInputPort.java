@@ -5,12 +5,15 @@ import com.icloud.topologyinventory.application.usecases.SwitchManagementUseCase
 import com.icloud.topologyinventory.domain.entity.EdgeRouter;
 import com.icloud.topologyinventory.domain.entity.Switch;
 import com.icloud.topologyinventory.domain.vo.*;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 public class SwitchManagementInputPort implements SwitchManagementUseCase {
 
-    private final SwitchManagementOutputPort switchManagementOutputPort;
+    SwitchManagementOutputPort switchManagementOutputPort;
 
-    public SwitchManagementInputPort(SwitchManagementOutputPort switchManagementOutputPort) {
+    @Override
+    public void setOutputPort(SwitchManagementOutputPort switchManagementOutputPort) {
         this.switchManagementOutputPort = switchManagementOutputPort;
     }
 
